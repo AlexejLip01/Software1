@@ -1,3 +1,4 @@
+import string
 password = input()
 
 errors = []
@@ -5,23 +6,26 @@ errors = []
 if len(password) != 8:
     errors.append("Длина пароля не равна 8")
 
-if not any(c.isupper() for c in password):
-    errors.append("В пароле отсутствуют заглавные буквы")
+if password.lower() == password:
+        errors.append("В пароле отсутствуют заглавные буквы")
 
-if not any(c.islower() for c in password):
+if password.upper() == password:
     errors.append("В пароле отсутствуют строчные буквы")
 
-if not any(c.isdigit() for c in password):
-    errors.append("В пароле отсутствуют цифры")
+if not any(symbol.isdigit() for symbol in password):
+        errors.append("В пароле отсутствуют цифры")
 
-if not any(c in "*-#" for c in password):
-    errors.append("В пароле отсутствуют специальные символы")
+special_chars = ['*', '-', '#']
+if not any(symbol in special_chars for symbol in password):
+        errors.append("В пароле отсутствуют специальные символы")
 
-if any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*-#" for c in password):
-    errors.append("В пароле используются непредусмотренные символы")
+allowed_chars = string.ascii_uppercase + string.ascii_lowercase + string.digits + '*-#'
+if not all(symbol in allowed_chars for symbol in password):
+        errors.append("В пароле используются непредусмотренные символы")
 
 if errors:
     for error in errors:
         print(error)
 else:
     print("Надежный пароль")
+
