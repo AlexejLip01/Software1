@@ -1,9 +1,7 @@
 import random
 import time
-while True:
-    try:
 
-        N=int(input("Введите количество примеров:"))
+ N=int(input("Введите количество примеров:"))
 
 correct = 0
 total_time = 0
@@ -34,4 +32,5 @@ print(f"Общее время: {total_time:.1f}сек")
 print(f"Среднее время: {total_time/N:.1f}сек")
 print(f"Правильных ответов:{correct} из {N}")
 print(f"Процент правильных: {correct/N*100:.1f}%")
+
 
