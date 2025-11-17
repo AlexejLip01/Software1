@@ -1,4 +1,4 @@
-# Ввод текста
+
 text = input("Введите текст: ")
 
 # Разбиваем текст на предложения
@@ -14,6 +14,6 @@ for char in text:
         current_sentence = ""
 
 
-# Выводим предложения в столбик
 for sentence in sentences:
+
     print(sentence)
